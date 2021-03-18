@@ -57,24 +57,36 @@ function App() {
   }
 
   return (
-    <div className="App">
-      {R.map(i => {
-        let counter=0;
-        return <div key={`${i}${counter}`}>{names.map(name => {
-          let num = counter++
-          return <p key={`${i}${num}`}>R{i}/{name}: <span style={{background: 'rgba(0,0,0,0.25)'}}>{states[num][i]}</span></p>
-        })}
+    <div className="container is-fluid">
+      <div className='table-container'>
+        <div className='table is-bordered is-striped is-narrow is-fullwidth'>
+          <tbody>
+            {R.map(i => {
+              let counter=0;
+              return <td key={`${i}${counter}`}>{names.map(name => {
+                let num = counter++
+                return <tr key={`${i}${num}`} style={{display: 'flex'}}>R{i}/{name}: <span style={{background: 'rgba(0,0,0,0.25)', marginLeft: '0.25em'}}>{states[num][i]}</span></tr>
+              })}
+              </td>
+          })}
+          </tbody>
         </div>
-      })}
+      </div>
       <hr />
-      {R.map(i => {
-        let counter=0;
-        return <div key={`${i}${counter}`}>{names.map(name => {
-          let num = counter++
-          return <p key={`${i}${num}`}>R{i}/{name}: <input value={states[num][i]} onChange={(e) => handleChange(num, i, e.target.value)} /></p>
-        })}
+      <div className='table-container'>
+        <div className='table is-bordered is-striped is-narrow is-fullwidth'>
+          <tbody>
+          {R.map(i => {
+            let counter=0;
+            return <td key={`${i}${counter}`}>{names.map(name => {
+              let num = counter++
+              return <tr key={`${i}${num}`} style={{display: 'flex'}}>R{i}/{name}: <input class='input is-small' type='text' value={states[num][i]} onChange={(e) => handleChange(num, i, e.target.value)} /></tr>
+            })}
+            </td>
+            })}
+          </tbody>
         </div>
-        })}
+      </div>
     </div>
   );
 }

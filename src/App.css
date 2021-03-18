@@ -1,8 +1,11 @@
 .App {
+
+}
+
+.wrapper{
   text-align: center;
   display: flex;
   justify-content: space-between;
-
   padding: 2em;
 }
 
